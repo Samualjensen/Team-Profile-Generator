@@ -211,5 +211,4 @@ addManager()
         console.log(err);
     });
 
-
-
+    
