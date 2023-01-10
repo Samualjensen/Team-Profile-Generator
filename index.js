@@ -1,12 +1,12 @@
 // node modules
 const inquirer = require("inquirer");
 const fs = require('fs');
+const validator = require('email-validator');
 
 // link to genrateHTML
 const html = require('./src/generateHTML');
 
 // team member profiles
-// const Employee = require('./lib/employee');
 const intern = require('./lib/intern');
 const engineer = require('./lib/engineer');
 const Manager = require('./lib/manager');
@@ -35,19 +35,20 @@ const addManager = () => {
             name: 'id',
             message: "What is the manager's ID?",
             validate: nameInput => {
-                if (NaN(nameInput)) {
-                    console.log("Please enter the manager's ID.");
-                } else {
+                if (nameInput) {
                     return true;
+                } else {
+                    console.log("Please enter the manager's id.");
+                    return false;
                 }
-            }
+                }
         },
         {
             type: 'input',
             name: 'email',
             message: "What is the manager's email address?",
             validate: email => {
-                if (validateEmail.validate(email)) {
+                if (validator.validate(email)) {
                     return true;
                 } else {
                     console.log("Please enter the manager's email address.");
@@ -60,10 +61,11 @@ const addManager = () => {
             name: 'officeNumber',
             message: "What is the Manager's office number?",
             validate: nameInput => {
-                if (NaN(nameInput)) {
-                    console.log("Please enter the manager's office number.");
-                } else {
+                if (nameInput) {
                     return true;
+                } else {
+                    console.log("Please enter the manager's office number.");
+                    return false;
                 }
             }
         }
@@ -106,11 +108,11 @@ const addEmployee = () => {
             name: 'id',
             message: "What is the employee's ID number?",
             validate: nameInput => {
-                if (NaN(nameInput)) {
+                if (nameInput) {
+                    return true;
+                } else {
                     console.log("Please enter the employee's ID number.");
                     return false;
-                } else {
-                    return true;
                 }
             }
         },
@@ -119,7 +121,7 @@ const addEmployee = () => {
             name: 'email',
             meassage: "What is the employee's email?",
             validate: email => {
-                if (validateEmail.validate(email)) {
+                if (validator.validate(email)) {
                     return true;
                 } else {
                     console.log("Please enter the employee's email address.");
@@ -151,6 +153,7 @@ const addEmployee = () => {
                     return true;
                 } else {
                     console.log("Please enter the intern's school.")
+                    return false;
                 }
             }
         },
@@ -163,7 +166,6 @@ const addEmployee = () => {
     ])
     .then(employeeData => {
         // employee type data
-
         let {name, id, email, role, github, school, confirmEmployee} = employeeData;
         let employee;
 
@@ -179,7 +181,7 @@ const addEmployee = () => {
 
         teamArray.push(employee);
 
-        if (confirmAddEmployee) {
+        if (confirmEmployee) {
             return addEmployee(teamArray);
         } else {
             return teamArray;
