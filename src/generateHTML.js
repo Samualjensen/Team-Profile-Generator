@@ -1,3 +1,4 @@
+pageArray = [];
 // generate manager card
 const generateManager = function (manager) {
     return `
@@ -56,32 +57,29 @@ const generateIntern = function (intern) {
 };
 
 // push array to page 
-generateHTML = (data) => {
+generateHTML = (teamArray) => {
 
-    // card array
-    pageArray = [];
-
-    for (let i = 0; i < data.length; i++) {
-        const employee = data[i];
-        const role = employee.getRole();
+    for (let i = 0; i < teamArray.length; i++) {
+        const employee = teamArray[i];
+        // const role = employee.getRole();
 
 
         // call manager function
-        if (role === 'Manager') {
+        if (employee.getRole() === 'Manager') {
             const managerCard = generateManager(employee);
 
             pageArray.push(managerCard);
         }
 
         // call engineer function
-        if (role === 'Engineer') {
+        if (employee.getRole() === 'Engineer') {
             const engineerCard = generateEngineer(employee);
 
             pageArray.push(engineerCard);
         }
 
         // call intern function 
-        if (role === 'Intern') {
+        if (employee.getRole() === 'Intern') {
             const internCard = generateIntern(employee);
 
             pageArray.push(internCard);
