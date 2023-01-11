@@ -14,6 +14,7 @@ const Intern = require('./lib/intern');
 // team array
 const teamArray = [];
 
+// prompt to choose employee role
 const chooseEmployee = () => {
     return inquirer.prompt([
         {
@@ -22,7 +23,9 @@ const chooseEmployee = () => {
             message: 'What type of role would you like you like to add to this team?',
             choices: ['Manager', 'Engineer', 'Intern', 'Finish building team'],
         }
-    ]).then(input => {
+    ])
+    // then add employee role based on input
+    .then(input => {
         switch (input.role) {
             case 'Manager':
                 addManager();
@@ -95,6 +98,7 @@ const addManager = () => {
             }
         }
     ])
+    // then create new manager
         .then(answers => {
             const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
 
@@ -160,6 +164,7 @@ const addEngineer = () => {
             }
         }
     ])
+    // then creat new engineer
         .then(answers => {
             const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
 
@@ -225,6 +230,7 @@ const addIntern = () => {
             }
         }
     ])
+    // then create new intern 
         .then(answers => {
             const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
 
@@ -233,7 +239,6 @@ const addIntern = () => {
             chooseEmployee();
         })
 };
-
 
 // function to generate html page
 const writeFile = () => {

@@ -3,7 +3,7 @@
 }
 
 :root {
-    --primary: grey;
+    --primary: salmon;
     --secondary: white;
 }
 
@@ -18,9 +18,9 @@ body {
 }
 
 .navbar-brand {
-    font-size: 50px;
+    font-size: 40px;
+    color: var(--secondary);
 }
-
 
 .card-header {
     background-color: var(--primary);
