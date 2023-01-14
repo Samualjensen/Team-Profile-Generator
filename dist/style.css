@@ -3,7 +3,7 @@
 }
 
 :root {
-    --primary: salmon;
+    --primary: #2596be;
     --secondary: white;
 }
 
@@ -28,8 +28,8 @@ body {
 }
 
 .card-body {
-    background-color: var(--secondary);
-    color: var(--primary);
+    background-color: var(--secaondry);
+    color: var(--secaondry);
 }
 
 .container {

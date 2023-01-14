@@ -12,7 +12,7 @@ A Node.js command-line application that takes in information about employees on 
 ### Installation:
 git clone https://github.com/Samualjensen/Team-Profile-Generator.git
 ### Usage:
-![img](./assets/images/teamprofilegeneratorscreenshot.png)
+![img](./assets/images/team_profile_generator_screenshot.png)
 ### License
 MIT
 ### Contributing
