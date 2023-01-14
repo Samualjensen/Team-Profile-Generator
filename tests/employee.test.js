@@ -11,15 +11,15 @@ describe('Employee', () => {
 
     describe('getID', () => {
         it("should return a new employee's ID", () => {
-            const employee = new Employee('Hildalgo', 666);
+            const employee = new Employee('Hildalgo', 999);
 
-            expect(employee.id).toEqual(666);
+            expect(employee.id).toEqual(999);
         })
     });
 
     describe('getEmail', () => {
         it("should return a new employee's email", () => {
-            const employee = new Employee('Hildalgo', 666, 'hildalgo@test.com');
+            const employee = new Employee('Hildalgo', 999, 'hildalgo@test.com');
 
             expect(employee.email).toEqual('hildalgo@test.com');
         })
@@ -27,7 +27,7 @@ describe('Employee', () => {
 
     describe('getRole', () => {
         it("should return a new employee's role", () => {
-            const employee = new Employee('Hildalgo', 666, 'hildalgo@test.com');
+            const employee = new Employee('Hildalgo', 999, 'hildalgo@test.com');
 
             expect(employee.getRole()).toEqual('Employee');
         })
